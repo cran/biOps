@@ -1,0 +1,10 @@
+
+biOps R package
+---------------
+Basic image operations and image processing
+
+This package includes arithmetic, logic, look up table and geometric operations. Edge detection functions (several algorithms including roberts, sobel, kirsch, marr-hildreth, canny) and operations by convolution masks (with predefined as well as user defined masks) are provided in this package. Supported file formats are jpeg and tiff (it requires libtiff and libjpeg libraries installed).
+
+* Installing from source.
+If you are running R on Linux, the only requirement is to have installed the libtiff and libjpeg dev and library packages. They are available in debian/ubuntu repositories, or can be download from http://www.libtiff.org/ (libtiff) and http://www.ijg.org/ (libjpeg). Then you can install the package as a normal R source package.
+If you are on Windows you should install the libtiff and libjpeg library dev, binary and dependencies package. You can get them from http://gnuwin32.sourceforge.net/packages/tiff.htm and http://gnuwin32.sourceforge.net/packages/jpeg.htm. Then you have to define the environment variables LIB_TIFF and LIB_JPEG with the respective libraries path, so LIB_TIFF/lib and LIB_JPEG/lib point to the compiled libraries' directories, and LIB_TIFF/include and LIB_JPEG/include are the directories where the libraries' headers are located. You also must check that the binaries of the libraries are installed in a directory in your PATH environment variable. After this, you should be able to build and install the package on your system through R CMD INSTALL.
