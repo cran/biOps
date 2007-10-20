@@ -17,7 +17,7 @@
 }
 \examples{
 	\dontrun{
-		x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+		x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 		y <- imgCrop(x, 100, 50, 100, 50)
 	}
 }

@@ -27,12 +27,14 @@ This file is part of biOps.
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <tiffio.h>
+#include "config.h"
 
 /*
 	Title: Tiff Read/Write Functions (C code)
 */
 
+#ifdef HAVE_TIFF_H
+#include <tiffio.h>
 /*
 	Function: read_tiff_img_info
 	Read the image info: width, height and depth.
@@ -191,3 +193,5 @@ void write_tiff_img (char **filename, int *image, int *width, int *height, int *
 	*ret = 1;
 	return;
 }
+
+#endif

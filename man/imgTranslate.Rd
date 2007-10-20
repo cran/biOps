@@ -19,7 +19,7 @@
 }
 \examples{
 	\dontrun{
-		x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+		x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 		y <- imgTranslate(x, 100, 100, 200, 200, 50, 50)
 	}
 }

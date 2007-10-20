@@ -14,7 +14,7 @@
 }
 \examples{
 	\dontrun{
-		x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+		x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 		lut <- seq(255, 0, by=-1)
 		y <- r_threshold(x, lut)
 	}

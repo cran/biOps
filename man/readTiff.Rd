@@ -13,7 +13,7 @@
 }
 \examples{
 	\dontrun{
-		x <- readTiff(system.file("data", "violet.tif", package="biOps"))
+		x <- readTiff(system.file("samples", "violet.tif", package="biOps"))
 		plot(x)
 	}
 }

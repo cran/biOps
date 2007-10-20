@@ -14,7 +14,7 @@
 	RGB imagedata
 }
 \examples{
-	\dontrun{x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+	\dontrun{x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 		r <- imgRedBand(x)
 		g <- imgGreenBand(x)
 		b <- imgBlueBand(x)

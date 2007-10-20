@@ -33,4 +33,5 @@ This file is part of biOps.
 #define CLIP(x,y,z) ((x) < (y)) ? (y) : (((x) > (z)) ? (z) : (x))
 
 #define PI 3.141593
+#define TWO_PI 6.283186
 

@@ -18,7 +18,7 @@
 	return an imagedata object
 }
 \examples{
-	x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+	x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 	y <- imgSobel(x)
 }
 \keyword{math}

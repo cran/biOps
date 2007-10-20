@@ -23,8 +23,8 @@ This file is part of biOps.
 	Title: Convolution Mask Operations
 */
 
+#include <stdlib.h>
 #include "defs.h"
-#include <stdio.h>
 
 /*
 	Function: convolution
@@ -48,19 +48,19 @@ This file is part of biOps.
 void convolution(int *image, int *width, int *height, int *depth, double *mask, int *mask_width, int *mask_height, int *bias, int *ret){
 	int x, y, d, i, j;
 
+	int x_src = *mask_width / 2;
+	int y_src = *mask_height / 2;
+
 	for (x = 0; x < *width; x++){
 		for (y = 0; y < *height; y++){
 			for (d = 0; d < *depth; d++){
 				int value = 0;
-				int x_src = *mask_width / 2;
-				int y_src = *mask_height / 2;
-
 				for (i = 0; i < *mask_width; i++){
 					for (j = 0; j < *mask_height; j++){
 						int x_pos, y_pos;
-						x_pos = (x < x_src) ? 0 : x + i - x_src;
+						x_pos = (x + i < x_src) ? 0 : x + i - x_src;
 						x_pos = (x_pos > *width - 1) ? *width - 1 : x_pos;
-						y_pos = (y < y_src) ? 0 : y + j - y_src;
+						y_pos = (y + j < y_src) ? 0 : y + j - y_src;
 						y_pos = (y_pos > *height - 1) ? *height - 1 : y_pos;
 						value += image[IMGPOS(x_pos, y_pos, d, *width, *height)] * mask[MSKPOS(i, j, *mask_width, *mask_height)];
 					}

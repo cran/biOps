@@ -26,12 +26,14 @@ This file is part of biOps.
  ***************************************************/
 
 #include <stdio.h>
-#include <jpeglib.h>
+#include "config.h"
 
 /*
 	Title: Jpeg Read/Write Functions (C code)
 */
 
+#ifdef HAVE_JPEGLIB_H
+#include <jpeglib.h>
 /*
 	Function: read_jpg_img_info
 	Read the image info: width, height and depth.
@@ -194,3 +196,5 @@ void write_jpg_img(char **filename, int *image, int *width, int *height, int *de
 	*ret = 1;
 	return;
 }
+
+#endif

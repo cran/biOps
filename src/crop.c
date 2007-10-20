@@ -43,7 +43,6 @@ This file is part of biOps.
 		image - The cropped image
 */
 void crop(int *image, int *width, int *height, int *depth, int *x_start, int *y_start, int *c_width, int *c_height, int *ret){
-	int plane_size = *c_width * *c_height * *depth;
 	int i, j, k;
 	for (i = 0; i < *c_width; i++){
 		for (j = 0 ; j < *c_height; j++){

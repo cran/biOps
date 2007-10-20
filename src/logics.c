@@ -23,8 +23,9 @@ This file is part of biOps.
 	Title: Logic Operations (C code)
 */
 
+#include <stdlib.h>
 #include "defs.h"
-#include <stdio.h>
+
 
 /*
 	Function: conjunction

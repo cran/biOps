@@ -15,7 +15,7 @@
 }
 \examples{
 	\dontrun{
-		x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+		x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 		m <- matrix(c(1,2,1,2,4,2,1,2,1)/16, 3, 3, byrow = TRUE)
 		y <- imgConvolve(x, m, 64)
 	}

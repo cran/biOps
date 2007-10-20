@@ -1,3 +1,0 @@
-#PKG_CFLAGS= -Wall -ansi
-#PKG_LIBS= libjpeg.a libtiff.a
-PKG_LIBS = -ltiff -ljpeg

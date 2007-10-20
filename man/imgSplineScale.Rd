@@ -15,7 +15,7 @@
 }
 \examples{
 	\dontrun{
-		x <- readJpeg(system.file("data", "violet.jpg", package="biOps"))
+		x <- readJpeg(system.file("samples", "violet.jpg", package="biOps"))
 		y <- imgSplineScale(x, 1.5, 1.5)
 	}
 }
