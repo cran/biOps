@@ -164,7 +164,7 @@ void increaseContrast(int *image, int *min_limit, int *max_limit, int *width, in
 		lut[i] = MIN_PIXEL_VALUE;
 	}
 	for (i = *min_limit; i < *max_limit + 1; i++){
-		lut[i] = i - *min_limit;
+		lut[i] = (int)(((i - *min_limit)*MAX_PIXEL_VALUE)/(*max_limit - *min_limit));
 	}
 	for (i = *max_limit; i < MAX_PIXEL_VALUE_PLUS_1; i++){
 		lut[i] = MAX_PIXEL_VALUE;

@@ -10,7 +10,7 @@
 	\item{r}{The radius of the frequency filter}
 }
 \value{
-	return a complex matrix
+	return an imagedata
 }
 \examples{
 	\dontrun{

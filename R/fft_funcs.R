@@ -34,8 +34,10 @@
 #	Returns:
 #		A complex matrix.
 #
-# requires fftw3
 imgFFT <- function(imgdata, shift=TRUE){
+	if(!TRUE)
+		stop("Sorry, fftw not available")
+
 	imgmatrix <- array(imgdata) # get linear array image representations
 	depth <- if (attr(imgdata, "type") == "grey") 1 else dim(imgdata)[3] # get images depth
 	width <- dim(imgdata)[2]
@@ -79,8 +81,10 @@ imgFFT <- function(imgdata, shift=TRUE){
 #	Returns:
 #		An imagedata.
 #
-# requires fftw3
 imgFFTInv <- function(fft_matrix, shift=TRUE){
+	if(!TRUE)
+		stop("Sorry, fftw not available")
+
 	if (shift)
 		fft_matrix <- imgFFTiShift(fft_matrix)
 	imgmatrix <- array(fft_matrix) # get linear array image representations

@@ -36,8 +36,9 @@
 #	Returns:
 #		An imagedata.
 #
-# requires libjpeg
 readJpeg <- function(filename){
+	if(!TRUE)
+		stop("Sorry, libjpeg not available")
 	res <- .C("read_jpg_img_info", as.character(filename),
 	          width=integer(1), height=integer(1), depth=integer(1),
 	          ret=integer(1), PACKAGE="biOps")
@@ -59,8 +60,9 @@ readJpeg <- function(filename){
 #		filename - The image path
 #		imgdata - The image data
 #
-# requires libjpeg
 writeJpeg <- function(filename, imgdata){
+	if(!TRUE)
+		stop("Sorry, libjpeg not available")
 	imgmatrix <- array(imgdata)
 	depth <- if (attr(imgdata, "type") == "grey") 1 else dim(imgdata)[3]
 	res <- .C("write_jpg_img", as.character(filename), image=as.integer(imgmatrix),

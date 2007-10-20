@@ -38,8 +38,8 @@
 #		The dilated image
 # 
 .imgGrayMorphologic <- function(imgdata, mask, method){
-	if (attr(imgdata, "type") != "grey") stop("imgBinaryDilation accepts only 1-channel images")
-	if (attr(mask, "type") != "grey") stop("imgBinaryDilation accepts only 1-channel masks")
+	if (attr(imgdata, "type") != "grey") stop("This method accepts only 1-channel images")
+	if (attr(mask, "type") != "grey") stop("This method accepts only 1-channel masks")
 	imgmatrix <- array(imgdata) # get linear array image representations
 	width <- dim(imgdata)[2]
 	height <- dim(imgdata)[1]

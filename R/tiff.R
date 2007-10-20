@@ -36,8 +36,9 @@
 #	Returns:
 #		An imagedata.
 #
-# requires libtiff
 readTiff <- function(filename){
+	if(!TRUE)
+		stop("Sorry, libtiff not available")
 	res <- .C("read_tiff_img_info", as.character(filename),
 	          width=integer(1), height=integer(1), depth=integer(1),
 	          ret=integer(1), PACKAGE="biOps")
@@ -59,8 +60,9 @@ readTiff <- function(filename){
 #		filename - The image path
 #		imgdata - The image data
 #
-# requires libtiff
 writeTiff <- function(filename, imgdata){
+	if(!TRUE)
+		stop("Sorry, libtiff not available")
 	imgmatrix <- array(imgdata)
 	depth <- if (attr(imgdata, "type") == "grey") 1 else dim(imgdata)[3]
 	res <- .C("write_tiff_img", as.character(filename), image=as.integer(imgmatrix),

@@ -22,6 +22,7 @@ This file is part of biOps.
 /*
 	Title: Morphology Operations
 */
+#include <stdio.h> /* FIXME: sacar */
 #include <stdlib.h>
 #include "defs.h"
 
@@ -168,7 +169,7 @@ void grayScaleDilation (int *image, int *width, int *height, int *mask, int *mas
 					y_pos = (y + j < y_src) ? -1 : y + j - y_src;
 					y_pos = (y_pos > *height - 1) ? -1 : y_pos;
 					if (x_pos != -1 && y_pos != -1){
-						value = image[IMGPOS(x_pos, y_pos, 0, *width, *height)] + mask[IMGPOS(i, j, 0, *mask_width, *mask_height)];
+						value = MIN(255, image[IMGPOS(x_pos, y_pos, 0, *width, *height)] + mask[IMGPOS(i, j, 0, *mask_width, *mask_height)]);
 						if (value > max){
 							max = value;
 						}
@@ -214,7 +215,7 @@ void grayScaleErosion (int *image, int *width, int *height, int *mask, int *mask
 					y_pos = (y + j < y_src) ? -1 : y + j - y_src;
 					y_pos = (y_pos > *height - 1) ? -1 : y_pos;
 					if (x_pos != -1 && y_pos != -1){
-						value = image[IMGPOS(x_pos, y_pos, 0, *width, *height)] + mask[IMGPOS(i, j, 0, *mask_width, *mask_height)];
+						value = MAX(0, image[IMGPOS(x_pos, y_pos, 0, *width, *height)] - mask[IMGPOS(i, j, 0, *mask_width, *mask_height)]);
 						if (value < min){
 							min = value;
 						}

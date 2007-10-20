@@ -88,8 +88,10 @@ imgFFTBandStop <- function(fft_matrix, r1, r2){
 	img
 }
 
-# requires fftw3
 imgFFTConvolve <- function(imgdata, mask){
+	if(!TRUE)
+		stop("Sorry, fftw not available")
+
 	width <- dim(imgdata)[2]
 	height <- dim(imgdata)[1]
 

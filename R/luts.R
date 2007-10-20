@@ -397,7 +397,7 @@ r_inc_contrast <- function(imgdata, min_limit, max_limit){
 
 	lut <- array(0, 256)
 	for (i in 0:(min_limit-1)) lut[i+1] <- 0
-	for (i in min_limit:(max_limit-1)) lut[i+1] <- (i - min_limit)
+	for (i in min_limit:(max_limit-1)) lut[i+1] <- as.integer(((i-min_limit)*255)/(max_limit-min_limit))
 	for (i in max_limit:255) lut[i+1] <- 255
 	r_look_up_table(imgdata, lut)
 }
