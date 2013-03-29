@@ -46,7 +46,6 @@ This file is part of biOps.
 */
 int kdtree_kmeans_it(int *image, int width, int height, int depth, int k, int **clusters, int mean_colors, int *ret){
 	int i = 0, j = 0, d = 0; /* indexes iterators */
-	int min_dist = -1; /* distances */
 	int cluster = 0; /* current cluster class */
 	int *pixel_it = malloc(depth * sizeof(int)); /* pixel iterator */
 	int *pix_count = (int *) calloc(k, sizeof(int)); /* counts the pixel in each class */
@@ -78,7 +77,6 @@ int kdtree_kmeans_it(int *image, int width, int height, int depth, int k, int **
 		for (j = 0; j < height; j++){
 			/* for each pixel */
 			int l = 0;
-			min_dist = -1;
 			for (l = 0; l < depth; l++){
 				pixel_it[l] = image[IMGPOS(i, j, l, width, height)];
 			}

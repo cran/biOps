@@ -87,7 +87,7 @@ void canny(int *image, int *width, int *height, int *depth, double *s, int *low,
 void canny_aux(int *image, int width, int height, int depth, double s, int *mag){
 	int gau_width = 0;
 	float *smx, *smy, *dx, *dy;
-	int i, n;
+	int i;
 	float gau[MAX_MASK_SIZE], dgau[MAX_MASK_SIZE];
 
 	/* Gaussian and derivative of Gaussian filter mask */
@@ -100,7 +100,7 @@ void canny_aux(int *image, int width, int height, int depth, double s, int *mag)
 		dgau[i] = dGauss((float) i, s);
 	}
 
-	n = gau_width + gau_width + 1;
+//      int 	n = gau_width + gau_width + 1;
 
 	smx = (float *) malloc(width * height * depth * sizeof(float));
 	smy = (float *) malloc(width * height * depth * sizeof(float));
@@ -239,7 +239,8 @@ void dxy_separable_convolution(float *image, int height, int width, int depth, f
 
 void nonmax_suppress(float *dx, float *dy, int height, int width, int depth, int *mag){
 	int i, j, d;
-	float xx, yy, g1, g2, g3, g4, g, xc, yc;
+	double xx, yy, g1, g2, g3, g4, g;
+	float xc, yc;
 
 	for (d = 0; d < depth; d++){
 		for (i = 1; i < height - 1; i++){

@@ -28,6 +28,7 @@ This file is part of biOps.
 #include <stdlib.h>
 #include <stdio.h>
 #include "config.h"
+#include <R.h>
 
 /*
 	Title: Tiff Read/Write Functions (C code)
@@ -98,14 +99,14 @@ void read_tiff_img (char **filename, int *image, int *ret){
 	imagesize = height * width + 1;
 
 	if ((raster = (uint32 *) malloc(sizeof(uint32) * imagesize)) == NULL){
-		fprintf(stderr, "Could not allocate enough memory\n");
+		REprintf("Could not allocate enough memory\n");
 		*ret = -1;
 		return;
 	}
 
 	/* Read the image into the memory buffer */
 	if (TIFFReadRGBAImage(tiff_image, width, height, raster, 0) == 0){
-		fprintf(stderr, "Could not read image\n");
+		REprintf("Could not read image\n");
 		*ret = -1;
 		return;
 	}
@@ -150,13 +151,13 @@ void write_tiff_img (char **filename, int *image, int *width, int *height, int *
 
 	/* Open the output image */
 	if ((output = TIFFOpen(fname, "w")) == NULL){
-		fprintf(stderr, "Could not open outgoing image\n");
+		REprintf("Could not open outgoing image\n");
 		*ret = -1;   /* couldn't open file */
 		return;
 	}
 
 	if ((raster = (unsigned char *) malloc(sizeof(char) * w * h * d)) == NULL){
-		fprintf(stderr, "Could not allocate enough memory\n");
+		REprintf("Could not allocate enough memory\n");
 		*ret = -1;   /* couldn't open file */
 		return;
 	}
@@ -183,7 +184,7 @@ void write_tiff_img (char **filename, int *image, int *width, int *height, int *
 
 	/* Actually write the image */
 	if (TIFFWriteEncodedStrip(output, 0, raster, w * h * d) == 0){
-		fprintf(stderr, "Could not write image\n");
+		REprintf("Could not write image\n");
 		*ret = -1;
 		return;
 	}

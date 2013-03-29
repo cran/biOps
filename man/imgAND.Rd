@@ -2,15 +2,15 @@
 \alias{imgAND}
 \title{And two images}
 \description{
-	This function does a logic AND between two images and returns a new image.
+  This function does a logic AND between two images and returns a new image.
 }
 \usage{imgAND(imgdata1, imgdata2)}
 \arguments{
-	\item{imgdata1}{The first image}
-	\item{imgdata2}{The second image}
+  \item{imgdata1}{The first image}
+  \item{imgdata2}{The second image}
 }
 \value{
-	return an imagedata object
+  return an imagedata object
 }
 \examples{
 	\dontrun{

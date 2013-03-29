@@ -35,7 +35,7 @@
 #		A complex matrix.
 #
 imgFFT <- function(imgdata, shift=TRUE){
-	if(!TRUE)
+	if(!FALSE)
 		stop("Sorry, fftw not available")
 
 	imgmatrix <- array(imgdata) # get linear array image representations
@@ -82,7 +82,7 @@ imgFFT <- function(imgdata, shift=TRUE){
 #		An imagedata.
 #
 imgFFTInv <- function(fft_matrix, shift=TRUE){
-	if(!TRUE)
+	if(!FALSE)
 		stop("Sorry, fftw not available")
 
 	if (shift)
